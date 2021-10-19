@@ -70,7 +70,7 @@ setEmail("13683@stu.ipbeja.pt");
 setprogram("Engenharia Informática");
 setSubjectList("DAW", 15);
 setSubjectList("PDM", 17);
-setSubjectList("SI", 12);
+setSubjectList("SI", 5);
 
 // output to HTML
 echo getName() . "<br>";
@@ -95,4 +95,22 @@ foreach($subjectList as $value){
 }
 
 echo '</table>'; // end table
+
+$gradeSum = 0.0;
+
+foreach($subjectList as $value){
+    global $gradeSum;
+    if($value >= 9.5){
+        $gradeSum = $gradeSum + $value[1];
+    }
+}
+
+echo "<span>Aproved Grade Average = </span>" . subjectGradesAverage($gradeSum) ;
+
+
+function subjectGradesAverage($gradeSum){
+    global $subjectList;
+    $average = $gradeSum / sizeof($subjectList);
+    return $average;
+}
 
