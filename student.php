@@ -4,7 +4,7 @@ $name = "";
 $number = 0;
 $email = "";
 $program = "";
-$subjectList = array("subjectName" => "", "grade" => 0.0, "status" => "");
+$subjectList = array(array());
 
 function setName($n){
     global $name;
@@ -48,9 +48,10 @@ function getProgram(){
 
 function setSubjectList($n, $g){
     global $subjectList;
-    $subjectList["name"] = $n;
-    $subjectList["grade"] = $g;
-    $subjectList["status"] = status($g);
+    array_push($subjectList, array($n, $g, status($g)));
+//    $subjectList["subjectName"] = $n;
+//    $subjectList["grade"] = $g;
+//    $subjectList["status"] = status($g);
 }
 
 function getSubjectList(){
@@ -71,11 +72,15 @@ setNumber(13683);
 setEmail("13683@stu.ipbeja.pt");
 setprogram("Engenharia Informática");
 setSubjectList("DAW", 15);
+setSubjectList("PDM", 17);
+setSubjectList("SI", 12);
 
+
+// output to HTML
 echo getName() . "<br>";
 echo getNumber() . "<br>";
 echo getEmail() . "<br>";
 echo getProgram() . "<br>";
 
 
-echo getSubjectList()["name"] . getSubjectList()["grade"] . getSubjectList()["status"];
+print_r(getSubjectList()) ;
