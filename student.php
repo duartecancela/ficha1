@@ -4,7 +4,7 @@ $name = "";
 $number = 0;
 $email = "";
 $program = "";
-$subjectList = array(array());
+$subjectList = array();
 
 function setName($n){
     global $name;
@@ -82,5 +82,20 @@ echo getNumber() . "<br>";
 echo getEmail() . "<br>";
 echo getProgram() . "<br>";
 
+// generate html table
+echo '<table>';
 
-print_r(getSubjectList()) ;
+foreach($subjectList as $value){
+    //print_r($value);
+
+    echo "<tr>";
+
+    foreach ($value as $item){
+        echo "<td>" . $item . "<br>";
+    }
+
+    echo "</tr>";
+}
+
+echo '</table>';
+
