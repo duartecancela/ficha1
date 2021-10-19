@@ -49,9 +49,6 @@ function getProgram(){
 function setSubjectList($n, $g){
     global $subjectList;
     array_push($subjectList, array($n, $g, status($g)));
-//    $subjectList["subjectName"] = $n;
-//    $subjectList["grade"] = $g;
-//    $subjectList["status"] = status($g);
 }
 
 function getSubjectList(){
@@ -75,27 +72,27 @@ setSubjectList("DAW", 15);
 setSubjectList("PDM", 17);
 setSubjectList("SI", 12);
 
-
 // output to HTML
 echo getName() . "<br>";
 echo getNumber() . "<br>";
 echo getEmail() . "<br>";
 echo getProgram() . "<br>";
 
+echo "<p> --Subject List--</p>";
+
 // generate html table
-echo '<table>';
+echo '<table>'; // start table
 
 foreach($subjectList as $value){
-    //print_r($value);
 
-    echo "<tr>";
+    echo "<tr>"; // start table row
 
     foreach ($value as $item){
-        echo "<td>" . $item . "<br>";
+        echo "<td>" . $item . "<br>"; // create table cell
     }
 
-    echo "</tr>";
+    echo "</tr>"; // end table row
 }
 
-echo '</table>';
+echo '</table>'; // end table
 
