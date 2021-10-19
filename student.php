@@ -64,13 +64,13 @@ function status($grade){
     }
 }
 
-setName("Duarte");
-setNumber(13683);
-setEmail("13683@stu.ipbeja.pt");
-setprogram("Engenharia Informática");
-setSubjectList("DAW", 15);
-setSubjectList("PDM", 17);
-setSubjectList("SI", 5);
+setName($_POST["name"]);
+setNumber($_POST["number"]);
+setEmail($_POST["email"]);
+setprogram($_POST["program"]);
+setSubjectList($_POST["name1"], $_POST["grade1"]);
+setSubjectList($_POST["name2"], $_POST["grade2"]);
+setSubjectList($_POST["name3"], $_POST["grade3"]);
 
 // output to HTML
 echo getName() . "<br>";
@@ -105,7 +105,7 @@ foreach($subjectList as $value){
     }
 }
 
-echo "<span>Aproved Grade Average = </span>" . subjectGradesAverage($gradeSum) ;
+echo "<br><span>Aproved Grade Average = </span>" . subjectGradesAverage($gradeSum) . "<br>" ;
 
 
 function subjectGradesAverage($gradeSum){
@@ -113,4 +113,5 @@ function subjectGradesAverage($gradeSum){
     $average = $gradeSum / sizeof($subjectList);
     return $average;
 }
+
 
