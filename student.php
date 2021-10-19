@@ -11,9 +11,39 @@ function setName($n){
     $name = $n;
 }
 
+function getName(){
+    global $name;
+    return $name;
+}
+
 function setNumber($n){
     global $number;
     $number = $n;
+}
+
+function getNumber(){
+    global $number;
+    return $number;
+}
+
+function setEmail($e){
+    global $email;
+    $email = $e;
+}
+
+function getEmail(){
+    global $email;
+    return $email;
+}
+
+function setProgram($p){
+    global $program;
+    $program = $p;
+}
+
+function getProgram(){
+    global $program;
+    return $program;
 }
 
 function setSubjectList($n, $g){
@@ -21,6 +51,11 @@ function setSubjectList($n, $g){
     $subjectList["name"] = $n;
     $subjectList["grade"] = $g;
     $subjectList["status"] = status($g);
+}
+
+function getSubjectList(){
+    global $subjectList;
+    return $subjectList;
 }
 
 function status($grade){
@@ -33,9 +68,14 @@ function status($grade){
 
 setName("Duarte");
 setNumber(13683);
+setEmail("13683@stu.ipbeja.pt");
+setprogram("Engenharia Informática");
 setSubjectList("DAW", 15);
 
-echo "<p>$name</p>";
-echo "<p>$number</p>";
+echo getName() . "<br>";
+echo getNumber() . "<br>";
+echo getEmail() . "<br>";
+echo getProgram() . "<br>";
 
-echo $subjectList["name"] . $subjectList["grade"] . $subjectList["status"];
+
+echo getSubjectList()["name"] . getSubjectList()["grade"] . getSubjectList()["status"];
