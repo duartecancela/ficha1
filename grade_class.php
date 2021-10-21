@@ -31,10 +31,7 @@ class Grade{
 
 }
 
-$grade = new Grade();
-$grade->setSubjectList("DAW", 17);
-$dfg = $grade->getSubjectList();
-print_r($dfg);
+
 
 
 
