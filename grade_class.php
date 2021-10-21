@@ -1,0 +1,40 @@
+<?php
+
+class Grade{
+    private $subjectList = array();
+
+    /**
+     * @return array
+     */
+    public function getSubjectList()
+    {
+        return $this->subjectList;
+    }
+
+    /**
+     *
+     */
+    public function setSubjectList( $n, $g)
+    {
+        array_push($this->subjectList, array($n, $g, $this->status($g)));
+
+
+    }
+
+    function status($grade){
+        if ($grade >= 9.5) {
+            return "Aprroved";
+        } else {
+            return "Disapproved";
+        }
+    }
+
+}
+
+$grade = new Grade();
+$grade->setSubjectList("DAW", 17);
+$dfg = $grade->getSubjectList();
+print_r($dfg);
+
+
+
