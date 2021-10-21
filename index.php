@@ -3,15 +3,15 @@ include("grade_class.php");
 include("student_class.php");
 
 $grade = new Grade();
-$grade->setSubjectList("DAW", 17);
-$grade->setSubjectList("PDM", 14);
-$grade->setSubjectList("SI", 9);
+$grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
+$grade->setSubjectList($_POST["name2"], $_POST["grade2"]);
+$grade->setSubjectList($_POST["name3"], $_POST["grade3"]);
 
 $student = new Student();
-$student->setName("Duarte Cancela");
-$student->setNumber(13683);
-$student->setEmail("13683@stu.ipbeja.pt");
-$student->setProgram("Engenharia Informática");
+$student->setName($_POST["name"]);
+$student->setNumber($_POST["number"]);
+$student->setEmail($_POST["email"]);
+$student->setProgram($_POST["program"]);
 
 // output to HTML
 echo $student->getName() . "<br>";
