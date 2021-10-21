@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Duarte Cancela
+ * 13683
+ * 21/10/2021
+ */
+
 class Student{
     private $name = "";
     private $number = 0;

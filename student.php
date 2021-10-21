@@ -1,4 +1,9 @@
 <?php
+/*
+ * Duarte Cancela
+ * 13683
+ * 21/10/2021
+ */
 
 $name = "";
 $number = 0;
