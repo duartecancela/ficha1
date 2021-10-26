@@ -8,8 +8,14 @@ include("GradeClass.php");
 include("StudentClass.php");
 include("DbClass.php");
 
+$serverName = "localhost";
+$userName = "root";
+$password = "";
+$database = "school";
 
-$grade = new Grade();
+$dbConnection = new DbClass();
+$dbConnection->connect($serverName, $userName, $password, $database);
+/*$grade = new Grade();
 $grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
 $grade->setSubjectList($_POST["name2"], $_POST["grade2"]);
 $grade->setSubjectList($_POST["name3"], $_POST["grade3"]);
@@ -56,6 +62,6 @@ function subjectGradesAverage($gradeSum){
     return $gradeSum / $size;
 }
 
-echo "<br><span>Aproved Grade Average = </span>" . subjectGradesAverage($gradeSum) . "<br>" ;
+echo "<br><span>Approved Grade Average = </span>" . subjectGradesAverage($gradeSum) . "<br>" ;*/
 
 
