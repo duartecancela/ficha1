@@ -4,8 +4,10 @@
  * 13683
  * 21/10/2021
  */
-include("grade_class.php");
-include("student_class.php");
+include("GradeClass.php");
+include("StudentClass.php");
+include("DbClass.php");
+
 
 $grade = new Grade();
 $grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
