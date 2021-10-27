@@ -13,17 +13,6 @@ class DbClass {
     private $password = "";
     private $database = "school";
 
-    /**
-     * @param string $serverName
-     * @param string $userName
-     * @param string $password
-     * @param string $database
-     */
-    public function __construct()
-    {
-
-    }
-
     public function connect(){
         try {
             $conn = new PDO("mysql:host=$this->serverName;dbname=$this->database", $this->userName, $this->password);
