@@ -26,7 +26,7 @@ class Grade{
 
     }
 
-    function status($grade){
+    public function status($grade){
         if ($grade >= 9.5) {
             return "Aprroved";
         } else {

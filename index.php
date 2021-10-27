@@ -7,23 +7,30 @@
 include("GradeClass.php");
 include("StudentClass.php");
 include("StudentDB.php");
+include("GradeDB.php");
 
-if($_POST['act'] == 'create'){
+if($_POST['act'] == 'create_student'){
     $student = new Student();
     $student->setName($_POST["name"]);
     $student->setNumber($_POST["number"]);
     $student->setEmail($_POST["email"]);
     $student->setProgram($_POST["program"]);
 
-
 // create an object create student in database
     $studentDb = new StudentDB();
     $studentDb->createStudent($student);
 
-}else if($_POST['act'] == 'edit'){
+}else if($_POST['act'] == 'edit_student'){
     // create an object create student in database
     $studentDb = new StudentDB();
     $studentDb->updateStudent($_POST["number"], $_POST["name"]);
+}else if($_POST['act'] == 'create_grade'){
+    $grade = new Grade();
+    $grade->setSubjectList($_POST["name"], $_POST["grade"]);
+
+    // create an object create grade in database
+    $gradeDb = new GradeDB();
+    $gradeDb->createGrade($grade, $_POST["number"]);
 }
 
 
