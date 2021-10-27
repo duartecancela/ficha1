@@ -8,15 +8,19 @@
 include("DbClass.php");
 
 class StudentDB {
-    public function createStudent(Student $student){
 
+    private function connect(){
+        $dbConnection = new DbClass();
+        return $dbConnection->connect();;
+    }
+
+    public function createStudent(Student $student){
         $name = $student->getName();
         $number = $student->getNumber();
         $email = $student->getEmail();
         $program = $student->getProgram();
 
-        $dbConnection = new DbClass();
-        $conn = $dbConnection->connect();
+        $conn = $this->connect();
         $sql = "INSERT INTO student(name, number, email, program) VALUES ('$name', $number, '$email', '$program')";
 
             if ($conn->query($sql)) {
@@ -29,9 +33,20 @@ class StudentDB {
 
     public function readStudent(){
 
+
     }
 
-    public function updateStudent(){
+    public function updateStudent($number, $name){
+        $conn = $this->connect();
+        $sql = "UPDATE student SET name='$name' WHERE number=$number";
+
+        if ($conn->query($sql)) {
+            echo "Record was updated successfully.";
+        } else {
+            echo "Error updating record" . "<br>" . $conn->errorCode();
+        }
+
+        $conn = null;
 
     }
 

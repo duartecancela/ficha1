@@ -8,16 +8,25 @@ include("GradeClass.php");
 include("StudentClass.php");
 include("StudentDB.php");
 
-$student = new Student();
-$student->setName($_POST["name"]);
-$student->setNumber($_POST["number"]);
-$student->setEmail($_POST["email"]);
-$student->setProgram($_POST["program"]);
+if($_POST['act'] == 'create'){
+    $student = new Student();
+    $student->setName($_POST["name"]);
+    $student->setNumber($_POST["number"]);
+    $student->setEmail($_POST["email"]);
+    $student->setProgram($_POST["program"]);
 
 
 // create an object create student in database
-$studentDb = new StudentDB();
-$studentDb->createStudent($student);
+    $studentDb = new StudentDB();
+    $studentDb->createStudent($student);
+
+}else if($_POST['act'] == 'edit'){
+    // create an object create student in database
+    $studentDb = new StudentDB();
+    $studentDb->updateStudent($_POST["number"], $_POST["name"]);
+}
+
+
 
 /*$grade = new Grade();
 $grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
