@@ -6,25 +6,25 @@
  */
 include("GradeClass.php");
 include("StudentClass.php");
-include("DbClass.php");
-
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$database = "school";
-
-$dbConnection = new DbClass();
-$dbConnection->connect($serverName, $userName, $password, $database);
-/*$grade = new Grade();
-$grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
-$grade->setSubjectList($_POST["name2"], $_POST["grade2"]);
-$grade->setSubjectList($_POST["name3"], $_POST["grade3"]);
+include("StudentDB.php");
 
 $student = new Student();
 $student->setName($_POST["name"]);
 $student->setNumber($_POST["number"]);
 $student->setEmail($_POST["email"]);
 $student->setProgram($_POST["program"]);
+
+
+// create an object create student in database
+$studentDb = new StudentDB();
+$studentDb->createStudent($student);
+
+/*$grade = new Grade();
+$grade->setSubjectList($_POST["name1"], $_POST["grade1"]);
+$grade->setSubjectList($_POST["name2"], $_POST["grade2"]);
+$grade->setSubjectList($_POST["name3"], $_POST["grade3"]);
+
+
 
 // output to HTML
 echo $student->getName() . "<br>";
